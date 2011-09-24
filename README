@@ -1,0 +1,3 @@
+Simple example using the Qt SDK and .qml files for displaying all
+cards in a Skat card deck, ordering them in a grid and making them
+flipable, based on an example shipping with the Qt SDK.
