@@ -52,7 +52,7 @@ Flipable {
     width: front.width; height: front.height 
 
     front: Image { id: frontImage; smooth: true }
-    back: Image { source: "back.png"; smooth: true }
+    back: Image { source: "shade.gif"; smooth: true }
 
     state: "back"
 
