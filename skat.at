@@ -1,0 +1,125 @@
+@@author Jan Walter @@
+@@title Skat @@
+@@headers no @@
+
+@# Here are some variable and macro definitions: #@
+@IN|S| = @sp h:5; @t S t@ sp@ IN@
+@IMG|FILENAME @ CAPTION| =
+@center @image FILENAME image@ @nl@ @i CAPTION i@ center@ IMG@
+
+@s1 Skat
+
+@right @s @draft@ s@ right@
+
+@@toc@@  @# This puts the table of contents here. Ignored in LaTeX. #@
+
+@s2 What is Skat?
+
+It is a German card game and you can read more about it on @link
+http://en.wikipedia.org/wiki/Skat_(card_game) Wikipedia link@. You can
+play Skat either with real people sitting in the same room, against a
+computer, or you can go online and play there, e.g. on the iPhone with
+an application called @link http://www.proskat.com/en/ Pro-Skat link@.
+
+@s2 Memory
+
+While learning the rules of the game is relatively easy, one of the
+skills you need to develop is to memorize what cards were already
+played and how many points were made on each side. While playing
+online on your iPhone you simply could use a deck of cards, order them
+in front of you on the table, and simply flip the cards which were
+played. The points you can easily count in your head. This simple
+trick allows you to learn faster what chances are that you win a game
+with what kind of card distributions. Obviously that will depend not
+only on your own skills to play that game, but be heavily dependend on
+the skills of your opponents.
+
+@s2 Computers
+
+While you are already using computers (in this case an iPhone) for
+keeping track of the game, making sure you follow the rules (the app
+doesn't allow you to @i cheat i@), creating statistics for you etc., I
+would like to motivate the learning of simple programming skills by
+replacing that deck of cards by a simple computer application which
+runs multi-platform and can be used as the basis for more and more
+advanced tools you might want to delvelop to further assist you with
+learning a new game like Skat.
+
+@s2 Qt
+
+There are many programming languages and many libraries and tools to
+help you develop cross-platform applications, but one of the easiest
+to learn and one of the most powerful tools which were created over
+the years is @link http://qt.nokia.com/products/ Qt link@. Once you
+installed the @b Qt SDK b@ and started @b Qt Creator b@ you will be
+able to search for an example called @b UI Components: Flipable
+Example b@:
+
+@IMG|img/search_for_flip @ Search for an example|
+
+@s3 Qml Files
+
+Once you found the example @b Qt Creator b@ pretty much helps you with
+any aspect of software development you need to create an application
+(executable), compile, link, and run the example code. It really comes
+down to just @b load the example b@ project with all it's related
+files (self contained) @b and press b@ the green arrow @b button b@.
+
+@IMG|img/card_qml @ Building the example program|
+
+The example does provide already all the functionality we want for our
+simplest Skat application. It displays two cards, which flip (with
+different animations) once you click on them. All we have to do is to
+change the example to display all cards of the Skat card set, arrange
+them in a certain order, and press cards while playing the online game
+against our opponents. That way you always see which cards were
+already played (and which ones were not).
+
+@s3 A Template
+
+Now let's create a template from within @b Qt Creator b@.
+
+@number
+@n Select @b File > New File or Project > Qt Quick Project > Qt Quick
+Application > Choose b@. n@
+@n Follow the instructions of the wizard to create a project called
+@b Skat b@. n@
+number@
+
+That template can be compiled, linked, and being executed by pressing
+the green arrow button. It will simply generate a Window with a "Hello
+World" text.
+
+@s3 Modifying the QML files
+
+All we have to do is to copy the @b Card.qml b@ file from the @b
+Flipable Example b@, change a single line there, download some images
+for the card set, and modify the @b main.qml b@ file created by the
+template. The resulting application window will look like this:
+
+@IMG|img/skat_simple @ The simplest Skat version|
+
+The one line you have to change from the original @b Card.qml b@ file
+is:
+
+@IN|
+@literal
+-    back: Image { source: "back.png"; smooth: true }
++    back: Image { source: "shade.gif"; smooth: true }
+literal@
+|
+
+The card set was downloaded from @link
+http://freshmeat.net/projects/pysol-cardsets/ here link@. For
+convenience I put all the necessary files on @link
+https://github.com/wahn/Skat GitHub link@ for you.
+
+@s2 GitHub
+
+If you want to create your own open source repositories and manage the
+projects with @link http://git-scm.com/ git link@ you might want to
+consider using @link https://github.com/ GitHub link@. They provide
+free space for git repositories and help with tools how to use it
+(e.g. here on Mac OSX):
+
+@IMG|img/git_hub @ Example of visualizing differences from a commit|
